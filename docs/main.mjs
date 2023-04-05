@@ -42,6 +42,7 @@ for (let i = 0; i < 375; i++)
 
 for (let i = 0; i < 100; i++)
   setTimeout(() => {
+    const { x: playerX, y: playerY } = getPlayerPos();
     const x1 = canvasWidth - 50,
           y1 = random() * (canvasHeight - 100) + 50;
     appendShot(new NormalShot({
