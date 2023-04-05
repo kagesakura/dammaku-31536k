@@ -1,7 +1,7 @@
 import { startMainLoop } from "./mainLoop.mjs";
 import { appendShot } from "./shotManager.mjs";
 import { getPlayerPos } from "./player.mjs";
-import { MormalShot, BouncingShot } from "./shot.mjs";
+import { NormalShot, BouncingShot } from "./shot.mjs";
 import { canvasWidth, canvasHeight } from "./canvas.mjs";
 const { atan, PI, random } = Math;
 
@@ -19,7 +19,7 @@ for (let i = 0; i < 143; i++)
     const y = 100 + random() * 220;
     const { x: playerX, y: playerY } = getPlayerPos();
     for (let d = -2; d < 3; d++) {
-      appendShot(new MormalShot({
+      appendShot(new NormalShot({
         x, y, size: 9,
         angle: (getAngle(x, y, playerX, playerY) + d * 30) * PI / 180,
         speed: 2.35,
@@ -66,14 +66,14 @@ for (let i = 0; i < 100; i++)
   setTimeout(() => {
     const a = 360 * random();
     for (let d = 0; d < 24; d++) {
-      appendShot(new MormalShot({
+      appendShot(new NormalShot({
         x: 411, y: 350, size: 9,
         angle: (d * 15 + a) * PI / 180,
         speed: 3.6,
         color: "#f00c41",
         startTime: startTime + 1000 * i
       }));
-      appendShot(new MormalShot({
+      appendShot(new NormalShot({
         x: 1233, y: 350, size: 9,
         angle: (d * 15 - a) / 180 * PI,
         speed: 3.6,
