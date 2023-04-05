@@ -2,6 +2,7 @@ import { startMainLoop } from "./mainLoop.mjs";
 import { appendShot } from "./shotManager.mjs";
 import { getPlayerPos } from "./player.mjs";
 import { MormalShot, BouncingShot } from "./shot.mjs";
+import { canvasWidth, canvasHeight } from "./canvas.mjs";
 const { atan, PI, random } = Math;
 
 function getAngle(originX, originY, targetX, targetY) {
@@ -38,6 +39,28 @@ for (let i = 0; i < 375; i++)
       startTime: startTime + 200 * i + 25000
     }));
   }, 200 * i + 25000);
+
+for (let i = 0; i < 100; i++)
+  setTimeout(() => {
+    const x1 = canvasWidth - 50,
+          y1 = random() * (canvasHeight - 100) + 50;
+    appendShot(new NormalShot({
+      x: x1, y: y1, size: 8,
+      angle: getAngle(x1, y1, playerX, playerY),
+      speed: 3,
+      color: "#00ff00",
+      startTime: startTime + 610 * i + 39000
+    }));
+    const x2 = 50,
+          y2 = random() * (canvasHeight - 100) + 50;
+    appendShot(new NormalShot({
+      x: x2, y: y2, size: 8,
+      angle: getAngle(x2, y2, playerX, playerY),
+      speed: 3,
+      color: "#00ff00",
+      startTime: startTime + 610 * i + 39000
+    }));
+  }, 610 * i + 39000);
 
 for (let i = 0; i < 100; i++)
   setTimeout(() => {
