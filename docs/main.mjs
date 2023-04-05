@@ -47,18 +47,18 @@ for (let i = 0; i < 100; i++)
           y1 = random() * (canvasHeight - 100) + 50;
     appendShot(new NormalShot({
       x: x1, y: y1, size: 8,
-      angle: getAngle(x1, y1, playerX, playerY),
+      angle: getAngle(x1, y1, playerX, playerY) * PI / 180,
       speed: 3,
-      color: "#00ff00",
+      color: "#ffff00",
       startTime: startTime + 610 * i + 39000
     }));
     const x2 = 50,
           y2 = random() * (canvasHeight - 100) + 50;
     appendShot(new NormalShot({
       x: x2, y: y2, size: 8,
-      angle: getAngle(x2, y2, playerX, playerY),
+      angle: getAngle(x2, y2, playerX, playerY) * PI / 180
       speed: 3,
-      color: "#00ff00",
+      color: "#ffff00",
       startTime: startTime + 610 * i + 39000
     }));
   }, 610 * i + 39000);
