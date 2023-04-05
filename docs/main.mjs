@@ -48,7 +48,7 @@ for (let i = 0; i < 100; i++)
     appendShot(new NormalShot({
       x: x1, y: y1, size: 8,
       angle: getAngle(x1, y1, playerX, playerY) * PI / 180,
-      speed: 3,
+      speed: 2,
       color: "#ffff00",
       startTime: startTime + 610 * i + 39000
     }));
@@ -57,7 +57,7 @@ for (let i = 0; i < 100; i++)
     appendShot(new NormalShot({
       x: x2, y: y2, size: 8,
       angle: getAngle(x2, y2, playerX, playerY) * PI / 180,
-      speed: 3,
+      speed: 2,
       color: "#ffff00",
       startTime: startTime + 610 * i + 39000
     }));
