@@ -3,7 +3,7 @@ import { context, canvasWidth, canvasHeight } from "./canvas.mjs";
 const { PI, sin, cos, abs } = Math;
 const now = performance.now.bind(performance);
 
-export class MormalShot {
+export class NormalShot {
   #size; #angle; #initX; #initY;
   #start; #color; #speed; #x; #y;
   #grazed;
