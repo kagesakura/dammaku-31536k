@@ -56,7 +56,7 @@ for (let i = 0; i < 100; i++)
           y2 = random() * (canvasHeight - 100) + 50;
     appendShot(new NormalShot({
       x: x2, y: y2, size: 8,
-      angle: getAngle(x2, y2, playerX, playerY) * PI / 180
+      angle: getAngle(x2, y2, playerX, playerY) * PI / 180,
       speed: 3,
       color: "#ffff00",
       startTime: startTime + 610 * i + 39000
