@@ -146,10 +146,10 @@ export class BouncingShot {
   }
 }
 
-Reflect.setPrototypeOf(MormalShot, null);
-Object.freeze(MormalShot);
-Reflect.setPrototypeOf(MormalShot.prototype, null);
-Object.freeze(MormalShot.prototype);
+Reflect.setPrototypeOf(NormalShot, null);
+Object.freeze(NormalShot);
+Reflect.setPrototypeOf(NormalShot.prototype, null);
+Object.freeze(NormalShot.prototype);
 Reflect.setPrototypeOf(BouncingShot, null);
 Object.freeze(BouncingShot);
 Reflect.setPrototypeOf(BouncingShot.prototype, null);
