@@ -72,7 +72,7 @@ for (let i = 0; i < 1000; i++)
         angle: (d * 15 + a) * PI / 180,
         speed: 3,
         color: "#f00c41",
-        startTime: startTime + 1000 * i
+        startTime: startTime + 100 * i
       }));
       appendShot(new NormalShot({
         x: 1233, y: 350, size: 9,
