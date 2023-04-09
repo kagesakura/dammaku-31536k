@@ -63,7 +63,7 @@ for (let i = 0; i < 100; i++)
     }));
   }, 610 * i + 39000);
 
-for (let i = 0; i < 1000; i++)
+for (let i = 0; i < 200; i++)
   setTimeout(() => {
     const a = 360 * random();
     for (let d = 0; d < 24; d++) {
@@ -72,17 +72,17 @@ for (let i = 0; i < 1000; i++)
         angle: (d * 15 + a) * PI / 180,
         speed: 3,
         color: "#f00c41",
-        startTime: startTime + 100 * i
+        startTime: startTime + 500 * i
       }));
       appendShot(new NormalShot({
         x: 1233, y: 350, size: 9,
         angle: (d * 15 - a) / 180 * PI,
         speed: 3,
         color: "#f00c41",
-        startTime: startTime + 100 * i
+        startTime: startTime + 500 * i
       }));
     }
-  }, 100 * i);
+  }, 500 * i);
 
 startMainLoop();
 
