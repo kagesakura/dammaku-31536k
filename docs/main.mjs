@@ -24,7 +24,7 @@ for (let i = 0; i < 84; i++)
         angle: (getAngle(x, y, playerX, playerY) + d * 30) * PI / 180,
         speed: 2,
         color: "#2fed05",
-        startTime: startTime + 650 * i + 7000
+        startTime: startTime + 1100 * i + 7000
       }));
     }
   }, 1100 * i + 7000);
