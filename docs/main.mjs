@@ -63,7 +63,7 @@ for (let i = 0; i < 100; i++)
     }));
   }, 610 * i + 39000);
 
-for (let i = 0; i < 100; i++)
+for (let i = 0; i < 1000; i++)
   setTimeout(() => {
     const a = 360 * random();
     for (let d = 0; d < 24; d++) {
@@ -79,10 +79,10 @@ for (let i = 0; i < 100; i++)
         angle: (d * 15 - a) / 180 * PI,
         speed: 3,
         color: "#f00c41",
-        startTime: startTime + 1000 * i
+        startTime: startTime + 100 * i
       }));
     }
-  }, 1000 * i);
+  }, 100 * i);
 
 startMainLoop();
 
