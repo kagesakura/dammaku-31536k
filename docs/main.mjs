@@ -40,7 +40,7 @@ for (let i = 0; i < 375; i++)
     }));
   }, 200 * i + 25000);
 
-for (let i = 0; i < 100; i++)
+for (let i = 0; i < 50; i++)
   setTimeout(() => {
     const { x: playerX, y: playerY } = getPlayerPos();
     const x1 = canvasWidth - 25,
@@ -50,7 +50,7 @@ for (let i = 0; i < 100; i++)
       angle: getAngle(x1, y1, playerX, playerY) * PI / 180,
       speed: 1.3,
       color: "#ffff00",
-      startTime: startTime + 610 * i + 39000
+      startTime: startTime + 1220 * i + 39000
     }));
     const x2 = 25,
           y2 = random() * (canvasHeight * 0.7) + 25;
@@ -59,9 +59,9 @@ for (let i = 0; i < 100; i++)
       angle: getAngle(x2, y2, playerX, playerY) * PI / 180,
       speed: 1.3,
       color: "#ffff00",
-      startTime: startTime + 610 * i + 39000
+      startTime: startTime + 1220 * i + 39000
     }));
-  }, 610 * i + 39000);
+  }, 1220 * i + 39000);
 
 for (let i = 0; i < 200; i++)
   setTimeout(() => {
