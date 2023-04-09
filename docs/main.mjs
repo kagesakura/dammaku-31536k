@@ -65,7 +65,7 @@ for (let i = 0; i < 100; i++)
 
 for (let i = 0; i < 200; i++)
   setTimeout(() => {
-    const a = 360 * random();
+    const a = (i * 2) % 360;
     for (let d = 0; d < 24; d++) {
       appendShot(new NormalShot({
         x: 411, y: 350, size: 9,
