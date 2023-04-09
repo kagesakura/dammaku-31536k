@@ -70,14 +70,14 @@ for (let i = 0; i < 200; i++)
       appendShot(new NormalShot({
         x: 411, y: 350, size: 9,
         angle: (d * 15 + a) * PI / 180,
-        speed: 3,
+        speed: 2.7,
         color: "#f00c41",
         startTime: startTime + 500 * i
       }));
       appendShot(new NormalShot({
         x: 1233, y: 350, size: 9,
         angle: (d * 15 - a) / 180 * PI,
-        speed: 3,
+        speed: 2.7,
         color: "#f00c41",
         startTime: startTime + 500 * i
       }));
