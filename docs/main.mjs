@@ -22,7 +22,7 @@ for (let i = 0; i < 143; i++)
       appendShot(new NormalShot({
         x, y, size: 9,
         angle: (getAngle(x, y, playerX, playerY) + d * 30) * PI / 180,
-        speed: 2.35,
+        speed: 2,
         color: "#2fed05",
         startTime: startTime + 650 * i + 7000
       }));
@@ -34,7 +34,7 @@ for (let i = 0; i < 375; i++)
     appendShot(new BouncingShot({
       x: 822, y: 150 + random() * 20, size: 9,
       angle: (random() * 360) * PI / 180,
-      speed: 3,
+      speed: 2.5,
       color: "#0229e8",
       startTime: startTime + 200 * i + 25000
     }));
@@ -48,7 +48,7 @@ for (let i = 0; i < 100; i++)
     appendShot(new NormalShot({
       x: x1, y: y1, size: 8,
       angle: getAngle(x1, y1, playerX, playerY) * PI / 180,
-      speed: 2,
+      speed: 1.3,
       color: "#ffff00",
       startTime: startTime + 610 * i + 39000
     }));
@@ -57,7 +57,7 @@ for (let i = 0; i < 100; i++)
     appendShot(new NormalShot({
       x: x2, y: y2, size: 8,
       angle: getAngle(x2, y2, playerX, playerY) * PI / 180,
-      speed: 2,
+      speed: 1.3,
       color: "#ffff00",
       startTime: startTime + 610 * i + 39000
     }));
@@ -70,14 +70,14 @@ for (let i = 0; i < 100; i++)
       appendShot(new NormalShot({
         x: 411, y: 350, size: 9,
         angle: (d * 15 + a) * PI / 180,
-        speed: 3.6,
+        speed: 3,
         color: "#f00c41",
         startTime: startTime + 1000 * i
       }));
       appendShot(new NormalShot({
         x: 1233, y: 350, size: 9,
         angle: (d * 15 - a) / 180 * PI,
-        speed: 3.6,
+        speed: 3,
         color: "#f00c41",
         startTime: startTime + 1000 * i
       }));
