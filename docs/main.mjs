@@ -13,7 +13,7 @@ function getAngle(originX, originY, targetX, targetY) {
 
 const startTime = performance.now() + 100;
 
-for (let i = 0; i < 143; i++)
+for (let i = 0; i < 84; i++)
   setTimeout(() => {
     const x = 500 + random() * 644;
     const y = 100 + random() * 220;
@@ -27,7 +27,7 @@ for (let i = 0; i < 143; i++)
         startTime: startTime + 650 * i + 7000
       }));
     }
-  }, 650 * i + 7000);
+  }, 1100 * i + 7000);
 
 for (let i = 0; i < 375; i++)
   setTimeout(() => {
