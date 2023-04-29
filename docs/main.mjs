@@ -3,7 +3,7 @@ import { appendShot } from "./shotManager.mjs";
 import { getPlayerPos } from "./player.mjs";
 import { NormalShot, BouncingShot } from "./shot.mjs";
 import { canvasWidth, canvasHeight } from "./canvas.mjs";
-const { atan, PI, random } = Math;
+const { atan, PI, random, sin } = Math;
 
 function getAngle(originX, originY, targetX, targetY) {
   let rad = atan((targetY - originY) / (targetX - originX));
@@ -103,7 +103,7 @@ for (let i = 0;; i++) {
   const time = secondPhaseStart + 760 * i;
   if (secondPhaseEnd < time) break;
   setTimeout(() => {
-    const a = -((i * 3) % 360);
+    const a = sin(i);
     for (let d = 0; d < 24; d++) {
       for (const speed of [3.4, 3.7, 4]) {
         appendShot(new NormalShot({
@@ -122,6 +122,27 @@ for (let i = 0;; i++) {
         }));
       }
     }
+  }, time);
+}
+
+for (let i = 0;; i++) {
+  const time = secondPhaseStart + 250 * i;
+  if (secondPhaseEnd < time) break;
+  setTimeout(() => {
+    appendShot(new BouncingShot({
+      x: 411, y: 350 + random() * 10, size: 9,
+      angle: (random() * 360) * PI / 180,
+      speed: 2.5,
+      color: "#0229e8",
+      startTime: startTime + time
+    }));
+    appendShot(new BouncingShot({
+      x: 1233, y: 350 + random() * 10, size: 9,
+      angle: (random() * 360) * PI / 180,
+      speed: 2.5,
+      color: "#0229e8",
+      startTime: startTime + time
+    }));
   }, time);
 }
 
