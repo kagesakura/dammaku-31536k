@@ -13,6 +13,8 @@ function getAngle(originX, originY, targetX, targetY) {
 
 const startTime = performance.now() + 200;
 const firstPhaseEnd = 50000;
+const secondPhaseStart = 55000;
+const secondPhaseEnd = 100000;
 
 for (let i = 0;; i++) {
   const time = 1600 * i + 7000;
@@ -93,6 +95,32 @@ for (let i = 0;; i++) {
         color: "#f00c41",
         startTime: startTime + time
       }));
+    }
+  }, time);
+}
+
+for (let i = 0;; i++) {
+  const time = secondPhaseStart + 650 * i;
+  if (secondPhaseEnd < time) break;
+  setTimeout(() => {
+    const a = -((i * 3) % 360);
+    for (let d = 0; d < 24; d++) {
+      for (const speed of [2.4, 2.6, 2.75]) {
+        appendShot(new NormalShot({
+          x: 411, y: 350, size: 9,
+          angle: (d * 15 + a) * PI / 180,
+          speed,
+          color: "#f00c41",
+          startTime: startTime + time
+        }));
+        appendShot(new NormalShot({
+          x: 1233, y: 350, size: 9,
+          angle: (d * 15 - a) / 180 * PI,
+          speed: 2.7,
+          color: "#f00c41",
+          startTime: startTime + time
+        }));
+      }
     }
   }, time);
 }
