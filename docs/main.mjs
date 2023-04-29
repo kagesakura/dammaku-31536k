@@ -105,7 +105,7 @@ for (let i = 0;; i++) {
   setTimeout(() => {
     const a = -((i * 3) % 360);
     for (let d = 0; d < 24; d++) {
-      for (const speed of [2.4, 2.6, 2.75]) {
+      for (const speed of [3.4, 3.7, 4]) {
         appendShot(new NormalShot({
           x: 411, y: 350, size: 9,
           angle: (d * 15 + a) * PI / 180,
@@ -116,7 +116,7 @@ for (let i = 0;; i++) {
         appendShot(new NormalShot({
           x: 1233, y: 350, size: 9,
           angle: (d * 15 - a) / 180 * PI,
-          speed: 2.7,
+          speed,
           color: "#f00c41",
           startTime: startTime + time
         }));
