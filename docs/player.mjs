@@ -30,7 +30,7 @@ export const drawPlayer = () => {
 };
 
 export const movePlayer = () => {
-  const speed = shift ? 6 : 9;
+  const speed = shift ? 6 : 9;.5;
   playerX += accX * speed;
   playerY += accY * speed;
   if (playerX < 0) playerX = 0;
