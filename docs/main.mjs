@@ -100,7 +100,7 @@ for (let i = 0;; i++) {
 }
 
 for (let i = 0;; i++) {
-  const time = secondPhaseStart + 650 * i;
+  const time = secondPhaseStart + 760 * i;
   if (secondPhaseEnd < time) break;
   setTimeout(() => {
     const a = -((i * 3) % 360);
