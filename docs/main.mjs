@@ -100,12 +100,12 @@ for (let i = 0;; i++) {
 }
 
 for (let i = 0;; i++) {
-  const time = secondPhaseStart + 760 * i;
+  const time = secondPhaseStart + 850 * i;
   if (secondPhaseEnd < time) break;
   setTimeout(() => {
-    const a = sin(i);
+    const a = sin(PI * i);
     for (let d = 0; d < 24; d++) {
-      for (const speed of [3.4, 3.7, 4]) {
+      for (const speed of [3.4, 3.8, 4.2]) {
         appendShot(new NormalShot({
           x: 411, y: 350, size: 9,
           angle: (d * 15 + a) * PI / 180,
@@ -126,20 +126,20 @@ for (let i = 0;; i++) {
 }
 
 for (let i = 0;; i++) {
-  const time = secondPhaseStart + 250 * i;
+  const time = secondPhaseStart + 150 * i;
   if (secondPhaseEnd < time) break;
   setTimeout(() => {
     appendShot(new BouncingShot({
       x: 411, y: 350 + random() * 10, size: 9,
       angle: (random() * 360) * PI / 180,
-      speed: 2.5,
+      speed: 4,
       color: "#0229e8",
       startTime: startTime + time
     }));
     appendShot(new BouncingShot({
       x: 1233, y: 350 + random() * 10, size: 9,
       angle: (random() * 360) * PI / 180,
-      speed: 2.5,
+      speed: 4,
       color: "#0229e8",
       startTime: startTime + time
     }));
