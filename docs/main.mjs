@@ -44,7 +44,7 @@ for (let i = 0; i < 50; i++)
   setTimeout(() => {
     const { x: playerX, y: playerY } = getPlayerPos();
     const x1 = canvasWidth - 25,
-          y1 = random() * (canvasHeight * 0.7) + 25;
+          y1 = random() * (canvasHeight * 0.6) + 15;
     appendShot(new NormalShot({
       x: x1, y: y1, size: 8,
       angle: getAngle(x1, y1, playerX, playerY) * PI / 180,
@@ -53,7 +53,7 @@ for (let i = 0; i < 50; i++)
       startTime: startTime + 1220 * i + 39000
     }));
     const x2 = 25,
-          y2 = random() * (canvasHeight * 0.7) + 25;
+          y2 = random() * (canvasHeight * 0.6) + 15;
     appendShot(new NormalShot({
       x: x2, y: y2, size: 8,
       angle: getAngle(x2, y2, playerX, playerY) * PI / 180,
