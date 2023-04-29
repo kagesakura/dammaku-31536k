@@ -103,7 +103,7 @@ const audioPlayer = document.createElement("audio");
 document.body.appendChild(audioPlayer);
 audioPlayer.src = "temper.mp3";
 audioPlayer.loop = true;
-audioPkayer.volume = 0.5;
+audioPlayer.volume = 0.5;
 
 window.addEventListener("keydown", () => {
   audioPlayer.play();
