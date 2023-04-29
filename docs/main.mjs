@@ -11,9 +11,12 @@ function getAngle(originX, originY, targetX, targetY) {
   return rad * 180 / PI;
 }
 
-const startTime = performance.now() + 100;
+const startTime = performance.now() + 200;
+const firstPhaseEnd = 50000;
 
-for (let i = 0; i < 58; i++)
+for (let i = 0;; i++) {
+  const time = 1600 * i + 7000;
+  if (firstPhaseEnd < time) break;
   setTimeout(() => {
     const x = 500 + random() * 644;
     const y = 100 + random() * 220;
@@ -24,23 +27,29 @@ for (let i = 0; i < 58; i++)
         angle: (getAngle(x, y, playerX, playerY) + d * 30) * PI / 180,
         speed: 2,
         color: "#2fed05",
-        startTime: startTime + 1700 * i + 7000
+        startTime: startTime + time
       }));
     }
-  }, 1700 * i + 7000);
+  }, time);
+}
 
-for (let i = 0; i < 375; i++)
+for (let i = 0;; i++) {
+  const time = 200 * i + 15000;
+  if (firstPhaseEnd < time) break;
   setTimeout(() => {
     appendShot(new BouncingShot({
       x: 822, y: 150 + random() * 20, size: 9,
       angle: (random() * 360) * PI / 180,
       speed: 2.5,
       color: "#0229e8",
-      startTime: startTime + 200 * i + 25000
+      startTime: startTime + time
     }));
-  }, 200 * i + 25000);
+  }, time);
+}
 
-for (let i = 0; i < 32; i++)
+for (let i = 0;; i++) {
+  const time = 1900 * i + 30000;
+  if (firstPhaseEnd < time) break;
   setTimeout(() => {
     const { x: playerX, y: playerY } = getPlayerPos();
     const x1 = canvasWidth - 25,
@@ -50,7 +59,7 @@ for (let i = 0; i < 32; i++)
       angle: getAngle(x1, y1, playerX, playerY) * PI / 180,
       speed: 1.3,
       color: "#ffff00",
-      startTime: startTime + 1900 * i + 39000
+      startTime: startTime + time
     }));
     const x2 = 25,
           y2 = random() * (canvasHeight * 0.6) + 15;
@@ -59,11 +68,14 @@ for (let i = 0; i < 32; i++)
       angle: getAngle(x2, y2, playerX, playerY) * PI / 180,
       speed: 1.3,
       color: "#ffff00",
-      startTime: startTime + 1900 * i + 39000
+      startTime: startTime + time
     }));
-  }, 1900 * i + 39000);
+  }, time);
+}
 
-for (let i = 0; i < 200; i++)
+for (let i = 0;; i++) {
+  const time = 500 * i;
+  if (firstPhaseEnd < time) break;
   setTimeout(() => {
     const a = (i * 2) % 360;
     for (let d = 0; d < 24; d++) {
@@ -72,17 +84,18 @@ for (let i = 0; i < 200; i++)
         angle: (d * 15 + a) * PI / 180,
         speed: 2.7,
         color: "#f00c41",
-        startTime: startTime + 500 * i
+        startTime: startTime + time
       }));
       appendShot(new NormalShot({
         x: 1233, y: 350, size: 9,
         angle: (d * 15 - a) / 180 * PI,
         speed: 2.7,
         color: "#f00c41",
-        startTime: startTime + 500 * i
+        startTime: startTime + time
       }));
     }
-  }, 500 * i);
+  }, time);
+}
 
 startMainLoop();
 
@@ -90,6 +103,7 @@ const audioPlayer = document.createElement("audio");
 document.body.appendChild(audioPlayer);
 audioPlayer.src = "temper.mp3";
 audioPlayer.loop = true;
+audioPkayer.volume = 0.5;
 
 window.addEventListener("keydown", () => {
   audioPlayer.play();
