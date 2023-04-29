@@ -13,7 +13,7 @@ function getAngle(originX, originY, targetX, targetY) {
 
 const startTime = performance.now() + 100;
 
-for (let i = 0; i < 84; i++)
+for (let i = 0; i < 58; i++)
   setTimeout(() => {
     const x = 500 + random() * 644;
     const y = 100 + random() * 220;
@@ -24,10 +24,10 @@ for (let i = 0; i < 84; i++)
         angle: (getAngle(x, y, playerX, playerY) + d * 30) * PI / 180,
         speed: 2,
         color: "#2fed05",
-        startTime: startTime + 1100 * i + 7000
+        startTime: startTime + 1700 * i + 7000
       }));
     }
-  }, 1100 * i + 7000);
+  }, 1700 * i + 7000);
 
 for (let i = 0; i < 375; i++)
   setTimeout(() => {
@@ -40,7 +40,7 @@ for (let i = 0; i < 375; i++)
     }));
   }, 200 * i + 25000);
 
-for (let i = 0; i < 50; i++)
+for (let i = 0; i < 32; i++)
   setTimeout(() => {
     const { x: playerX, y: playerY } = getPlayerPos();
     const x1 = canvasWidth - 25,
@@ -50,7 +50,7 @@ for (let i = 0; i < 50; i++)
       angle: getAngle(x1, y1, playerX, playerY) * PI / 180,
       speed: 1.3,
       color: "#ffff00",
-      startTime: startTime + 1220 * i + 39000
+      startTime: startTime + 1900 * i + 39000
     }));
     const x2 = 25,
           y2 = random() * (canvasHeight * 0.6) + 15;
@@ -59,9 +59,9 @@ for (let i = 0; i < 50; i++)
       angle: getAngle(x2, y2, playerX, playerY) * PI / 180,
       speed: 1.3,
       color: "#ffff00",
-      startTime: startTime + 1220 * i + 39000
+      startTime: startTime + 1900 * i + 39000
     }));
-  }, 1220 * i + 39000);
+  }, 1900 * i + 39000);
 
 for (let i = 0; i < 200; i++)
   setTimeout(() => {
