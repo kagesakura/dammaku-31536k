@@ -103,7 +103,7 @@ for (let i = 0;; i++) {
   const time = secondPhaseStart + 850 * i;
   if (secondPhaseEnd < time) break;
   setTimeout(() => {
-    const a = 3 * i + 10 * sin(i / 3);
+    const a = 2 * i + 10 * sin(i / 3);
     for (let d = 0; d < 24; d++) {
       for (const speed of [3.4, 3.8, 4.2]) {
         appendShot(new NormalShot({
