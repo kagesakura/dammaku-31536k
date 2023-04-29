@@ -12,7 +12,7 @@ export const startMainLoop = () => void function mainLoop() {
     hit() {
       console.error("Hit!");
       resetPlayerPos();
-      return true;
+      if (typeof DAMMAKU_DEBUG !== "undefined") return true;
     },
     grazed() {
       console.info("Graze!");
