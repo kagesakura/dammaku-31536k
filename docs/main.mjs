@@ -155,7 +155,7 @@ for (let i = 0;; i++) {
   setTimeout(() => {
     const { x: playerX, y: playerY } = getPlayerPos();
     appendShot(new BouncingShot({
-      x: 411, y: 350 + random() * 10, size: 23,
+      x, y, size: 23,
       angle: getAngle(x, y, playerX, playerY) * PI / 180,
       speed: 3,
       color: "#ffff00",
