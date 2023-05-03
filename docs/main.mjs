@@ -150,8 +150,8 @@ for (let i = 0;; i++) {
   const time = secondPhaseStart + 500 * i;
   if (secondPhaseEnd < time) break;
   const r = 190;
-  const x = 822 + r * sin(i * 2 * PI / 8);
-  const y = 350 + r * cos(i * 2 * PI / 8);
+  const x = 822 + r * sin(i * PI / 25);
+  const y = 350 + r * cos(i * PI / 25);
   setTimeout(() => {
     const { x: playerX, y: playerY } = getPlayerPos();
     appendShot(new NormalShot({
