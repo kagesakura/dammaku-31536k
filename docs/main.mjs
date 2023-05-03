@@ -147,7 +147,7 @@ for (let i = 0;; i++) {
 }
 
 for (let i = 0;; i++) {
-  const time = secondPhaseStart + 500 * i;
+  const time = secondPhaseStart + 120 * i;
   if (secondPhaseEnd < time) break;
   const r = 190;
   const x = 822 + r * sin(i * PI / 25);
