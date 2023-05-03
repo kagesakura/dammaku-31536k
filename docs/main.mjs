@@ -104,18 +104,18 @@ for (let i = 0;; i++) {
   if (secondPhaseEnd < time) break;
   setTimeout(() => {
     const a = i + 13 * sin(i / 5);
-    for (let d = 0; d < 12; d++) {
+    for (let d = 0; d < 18; d++) {
       for (const speed of [3.4, 3.8, 4.2]) {
         appendShot(new NormalShot({
           x: 411, y: 350, size: 9,
-          angle: (d * 30 + a) * PI / 180,
+          angle: (d * 20 + a) * PI / 180,
           speed,
           color: "#f00c41",
           startTime: startTime + time
         }));
         appendShot(new NormalShot({
           x: 1233, y: 350, size: 9,
-          angle: (d * 30 - a) / 180 * PI,
+          angle: (d * 20 - a) / 180 * PI,
           speed,
           color: "#f00c41",
           startTime: startTime + time
