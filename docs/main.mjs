@@ -158,7 +158,7 @@ for (let i = 0;; i++) {
       x, y, size: 25,
       angle: getAngle(x, y, playerX, playerY) * PI / 180,
       speed: 3,
-      color: "#ffff00",
+      color: "#ffff009f",
       startTime: startTime + time
     }));
   }, time);
