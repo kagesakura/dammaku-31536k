@@ -3,7 +3,7 @@ import { appendShot } from "./shotManager.mjs";
 import { getPlayerPos } from "./player.mjs";
 import { NormalShot, BouncingShot } from "./shot.mjs";
 import { canvasWidth, canvasHeight } from "./canvas.mjs";
-const { atan, PI, random, sin } = Math;
+const { atan, PI, random, sin, cos } = Math;
 
 function getAngle(originX, originY, targetX, targetY) {
   let rad = atan((targetY - originY) / (targetX - originX));
