@@ -147,15 +147,15 @@ for (let i = 0;; i++) {
 }
 
 for (let i = 0;; i++) {
-  const time = secondPhaseStart + 120 * i;
+  const time = secondPhaseStart + 150 * i;
   if (secondPhaseEnd < time) break;
-  const r = 190;
+  const r = 300;
   const x = 822 + r * sin(i * PI / 25);
-  const y = 350 + r * cos(i * PI / 25);
+  const y = 400 + r * cos(i * PI / 25);
   setTimeout(() => {
     const { x: playerX, y: playerY } = getPlayerPos();
     appendShot(new NormalShot({
-      x, y, size: 19,
+      x, y, size: 25,
       angle: getAngle(x, y, playerX, playerY) * PI / 180,
       speed: 3,
       color: "#ffff00",
