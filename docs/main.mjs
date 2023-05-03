@@ -147,11 +147,11 @@ for (let i = 0;; i++) {
 }
 
 for (let i = 0;; i++) {
-  const time = secondPhaseStart + 170 * i;
+  const time = secondPhaseStart + 160 * i;
   if (secondPhaseEnd < time) break;
   const r = 570;
-  const x = 822 + r * sin(i * PI / 19);
-  const y = 600 + r * cos(i * PI / 19);
+  const x = 822 + r * sin(i * PI / 16);
+  const y = 600 + r * -cos(i * PI / 16);
   setTimeout(() => {
     const { x: playerX, y: playerY } = getPlayerPos();
     appendShot(new NormalShot({
