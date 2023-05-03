@@ -153,6 +153,7 @@ for (let i = 0;; i++) {
   const x = 822 + r * sin(i * 2 * PI / 8);
   const y = 350 + r * cos(i * 2 * PI / 8);
   setTimeout(() => {
+    const { x: playerX, y: playerY } = getPlayerPos();
     appendShot(new BouncingShot({
       x: 411, y: 350 + random() * 10, size: 23,
       angle: getAngle(x, y, playerX, playerY) * PI / 180,
