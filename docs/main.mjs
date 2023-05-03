@@ -146,6 +146,22 @@ for (let i = 0;; i++) {
   }, time);
 }
 
+for (let i = 0;; i++) {
+  const time = secondPhaseStart + 300 * i;
+  if (secondPhaseEnd < time) break;
+  const r = 100;
+  const x = 822 + r * sin(i * 2 * PI / 8), y = 350 + r * cos(i * 2 * PI / 8);
+  setTimeout(() => {
+    appendShot(new BouncingShot({
+      x: 411, y: 350 + random() * 10, size: 23,
+      angle: getAngle(x, y, playerX, playerY) * PI / 180,
+      speed: 3,
+      color: "#ffff00",
+      startTime: startTime + time
+    }));
+  }, time);
+}
+
 startMainLoop();
 
 const audioPlayer = document.createElement("audio");
