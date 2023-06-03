@@ -128,6 +128,7 @@ export class NormalShot {
   }
   static createBuffer({ x, y, size, angle, speed, color, startTime, grazed = false }) {
     const buf = new Array(shotStructureSize).fill(null);
+    buf[0] = 0;
     buf[xFieldOffset] = buf[initXFieldOffset] = x;
     buf[yFieldOffset] = buf[initYFieldOffset] = y;
     buf[sizeFieldOffset] = size;
@@ -196,6 +197,7 @@ export class BouncingShot {
   }
   static createBuffer({ x, y, size, angle, speed, color, startTime, grazed = false }) {
     const buf = new Array(shotStructureSize).fill(null);
+    buf[0] = 1;
     buf[xFieldOffset] = buf[initXFieldOffset] = x;
     buf[yFieldOffset] = buf[initYFieldOffset] = y;
     buf[sizeFieldOffset] = size;
