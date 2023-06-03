@@ -104,18 +104,18 @@ for (let i = 0;; i++) {
   if (secondPhaseEnd < time) break;
   setTimeout(() => {
     const a = i + 13 * sin(i / 5);
-    for (let d = 0; d < 18; d++) {
+    for (let d = 0; d < 24; d++) {
       for (const speed of [3.4, 3.8, 4.2]) {
         NormalShot.createBuffer({
           x: 411, y: 350, size: 9,
-          angle: (d * 20 + a) * PI / 180,
+          angle: (d * 15 + a) * PI / 180,
           speed,
           color: "#f00c41",
           startTime: startTime + time
         }).forEach(n => appendShot(n));
         NormalShot.createBuffer({
           x: 1233, y: 350, size: 9,
-          angle: (d * 20 - a) / 180 * PI,
+          angle: (d * 15 - a) / 180 * PI,
           speed,
           color: "#f00c41",
           startTime: startTime + time
