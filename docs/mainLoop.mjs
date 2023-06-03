@@ -24,15 +24,15 @@ const arg = Object.freeze({
   }
 });
 
-let prev = -1, fps = NaN;
+let prev = -1, spf = NaN;
 Reflect.defineProperty(globalThis, "FPS", {
   __proto__: null,
-  get: () => fps
+  get: () => (1000 / spf) >>> 0
 });
 let started = false;
 export const startMainLoop = () => void(!started && function mainLoop() {
   const n = now();
-  fps = 1000 / (n - prev);
+  spf = n - prev;
   prev = n;
   clearCanvas();
   movePlayer();
