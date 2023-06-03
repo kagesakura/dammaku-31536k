@@ -1,7 +1,6 @@
 import { getPlayerPos } from "./player.mjs";
 import { shotStructureSize, moveAndDrawShot, checkCollision } from "./shot.mjs";
 
-const shotStructureSizeBigInt = BigInt(shotStructureSize);
 const shots = { __proto__: null };
 const addRequests = [];
 Reflect.setPrototypeOf(addRequests, null);
@@ -41,7 +40,7 @@ export const moveAndDrawShots = ({ hit, grazed }) => {
   let tmpMax = max;
   const { x: pX, y: pY } = getPlayerPos();
   locked = true;
-  for (let i = max - 1; i >= min; i -= shotStructureSize) {
+  for (let i = max - shotStructureSize; i >= min; i -= shotStructureSize) {
     if (!(i in shots)) continue;
     if (moveAndDrawShot(i)) {
       notFound = false;
