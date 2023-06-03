@@ -16,7 +16,7 @@ const grazedFieldOffset = 10
 const bouncedFieldOffset = 11
 export const shotStructureSize = 12;
 
-const shotsBuffer = [];
+export const shotsBuffer = { __proto__: null };
 
 export const moveAndDrawShot = (index) => {
   switch (shotsBuffer[index]) {
