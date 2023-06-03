@@ -1,6 +1,7 @@
 import { getPlayerPos } from "./player.mjs";
 import { shotStructureSize, moveAndDrawShot, checkCollision } from "./shot.mjs";
 
+const shotStructureSizeBigInt = BigInt(shotStructureSize);
 const shots = { __proto__: null };
 const addRequests = [];
 Reflect.setPrototypeOf(addRequests, null);
@@ -14,8 +15,8 @@ Reflect.defineProperty(globalThis, "shotsCount", {
 const deleter = k => delete shots[k];
 
 let locked = false;
-let min = 0n;
-let max = 0n;
+let min = 0;
+let max = 0;
 
 export const appendShot = shot => {
   if (locked) addRequests[addRequests.length++] = shot;
@@ -24,7 +25,7 @@ export const appendShot = shot => {
 
 export const clearShots = () => {
   if (locked) return;
-  min = max = 0n;
+  min = max = 0;
   ownKeys(shots).forEach(deleter);
 };
 
@@ -40,7 +41,7 @@ export const moveAndDrawShots = ({ hit, grazed }) => {
   let tmpMax = max;
   const { x: pX, y: pY } = getPlayerPos();
   locked = true;
-  for (let i = max - 1n; i >= min; i -= shotStructureSize) {
+  for (let i = max - 1; i >= min; i -= shotStructureSize) {
     if (!(i in shots)) continue;
     if (moveAndDrawShot(i)) {
       notFound = false;
@@ -59,11 +60,11 @@ export const moveAndDrawShots = ({ hit, grazed }) => {
       }
       continue;
     }
-    for (let j = 0n; j < shotStructureSize; j++)
+    for (let j = 0; j < shotStructureSize; j++)
       delete shots[i + j];
     if (notFound) tmpMax = i;
   }
-  if (tmpMin >= tmpMax) tmpMin = tmpMax = 0n;
+  if (tmpMin >= tmpMax) tmpMin = tmpMax = 0;
   min = tmpMin;
   max = tmpMax;
   unlock();
