@@ -24,13 +24,13 @@ for (let i = 0;; i++) {
     const y = 100 + random() * 220;
     const { x: playerX, y: playerY } = getPlayerPos();
     for (let d = -2; d < 3; d++) {
-      appendShot(new NormalShot({
+      NormalShot.createBuffer({
         x, y, size: 9,
         angle: (getAngle(x, y, playerX, playerY) + d * 30) * PI / 180,
         speed: 2,
         color: "#2fed05",
         startTime: startTime + time
-      }));
+      }).forEach(n => appendShot(n));
     }
   }, time);
 }
@@ -39,13 +39,13 @@ for (let i = 0;; i++) {
   const time = 200 * i + 15000;
   if (firstPhaseEnd < time) break;
   setTimeout(() => {
-    appendShot(new BouncingShot({
+    BouncingShot.createBuffer({
       x: 822, y: 150 + random() * 20, size: 9,
       angle: (random() * 360) * PI / 180,
       speed: 2.5,
       color: "#0229e8",
       startTime: startTime + time
-    }));
+    }).forEach(n => appendShot(n));
   }, time);
 }
 
@@ -56,22 +56,22 @@ for (let i = 0;; i++) {
     const { x: playerX, y: playerY } = getPlayerPos();
     const x1 = canvasWidth - 25,
           y1 = random() * (canvasHeight * 0.6) + 15;
-    appendShot(new NormalShot({
+    NormalShot.createBuffer({
       x: x1, y: y1, size: 8,
       angle: getAngle(x1, y1, playerX, playerY) * PI / 180,
       speed: 1.3,
       color: "#ffff00",
       startTime: startTime + time
-    }));
+    }).forEach(n => appendShot(n));
     const x2 = 25,
           y2 = random() * (canvasHeight * 0.6) + 15;
-    appendShot(new NormalShot({
+    NormalShot.createBuffer({
       x: x2, y: y2, size: 8,
       angle: getAngle(x2, y2, playerX, playerY) * PI / 180,
       speed: 1.3,
       color: "#ffff00",
       startTime: startTime + time
-    }));
+    }).forEach(n => appendShot(n));
   }, time);
 }
 
@@ -81,20 +81,20 @@ for (let i = 0;; i++) {
   setTimeout(() => {
     const a = (i * 2) % 360;
     for (let d = 0; d < 24; d++) {
-      appendShot(new NormalShot({
+      NormalShot.createBuffer({
         x: 411, y: 350, size: 9,
         angle: (d * 15 + a) * PI / 180,
         speed: 2.7,
         color: "#f00c41",
         startTime: startTime + time
-      }));
-      appendShot(new NormalShot({
+      }).forEach(n => appendShot(n));
+      NormalShot.createBuffer({
         x: 1233, y: 350, size: 9,
         angle: (d * 15 - a) / 180 * PI,
         speed: 2.7,
         color: "#f00c41",
         startTime: startTime + time
-      }));
+      }).forEach(n => appendShot(n));
     }
   }, time);
 }
@@ -106,20 +106,20 @@ for (let i = 0;; i++) {
     const a = i + 13 * sin(i / 5);
     for (let d = 0; d < 18; d++) {
       for (const speed of [3.4, 3.8, 4.2]) {
-        appendShot(new NormalShot({
+        NormalShot.createBuffer({
           x: 411, y: 350, size: 9,
           angle: (d * 20 + a) * PI / 180,
           speed,
           color: "#f00c41",
           startTime: startTime + time
-        }));
-        appendShot(new NormalShot({
+        }).forEach(n => appendShot(n));
+        NormalShot.createBuffer({
           x: 1233, y: 350, size: 9,
           angle: (d * 20 - a) / 180 * PI,
           speed,
           color: "#f00c41",
           startTime: startTime + time
-        }));
+        }).forEach(n => appendShot(n));
       }
     }
   }, time);
@@ -129,20 +129,20 @@ for (let i = 0;; i++) {
   const time = secondPhaseStart + 200 * i;
   if (secondPhaseEnd < time) break;
   setTimeout(() => {
-    appendShot(new BouncingShot({
+    BouncingShot.createBuffer({
       x: 411, y: 350 + random() * 10, size: 9,
       angle: (random() * 360) * PI / 180,
       speed: 4,
       color: "#0229e8",
       startTime: startTime + time
-    }));
-    appendShot(new BouncingShot({
+    }).forEach(n => appendShot(n));
+    BouncingShot.createBuffer({
       x: 1233, y: 350 + random() * 10, size: 9,
       angle: (random() * 360) * PI / 180,
       speed: 4,
       color: "#0229e8",
       startTime: startTime + time
-    }));
+    }).forEach(n => appendShot(n));
   }, time);
 }
 
@@ -154,13 +154,13 @@ for (let i = 0;; i++) {
   const y = 600 + r * -cos(i * PI / 16);
   setTimeout(() => {
     const { x: playerX, y: playerY } = getPlayerPos();
-    appendShot(new NormalShot({
+    NormalShot.createBuffer({
       x, y, size: 25,
       angle: getAngle(x, y, playerX, playerY) * PI / 180,
       speed: 3,
       color: "#ffff009f",
       startTime: startTime + time
-    }));
+    }).forEach(n => appendShot(n));
   }, time);
 }
 
