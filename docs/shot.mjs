@@ -103,8 +103,8 @@ export const checkCollision = (index, pX, pY) => {
   const x = shotsBuffer[index + xFieldOffset];
   const y = shotsBuffer[index + yFieldOffset];
   if ((x - pX) ** 2 + (y - pY) ** 2 < (size * 0.85) ** 2) return -1;
-  if (!shotStructureSize[index + grazedFieldOffset] && (x - pX) ** 2 + (y - pY) ** 2 < (size * 1.5) ** 2) {
-    shotStructureSize[index + grazedFieldOffset] = true;
+  if (!shotsBuffer[index + grazedFieldOffset] && (x - pX) ** 2 + (y - pY) ** 2 < (size * 1.5) ** 2) {
+    shotsBuffer[index + grazedFieldOffset] = true;
     return 1;
   }
   return 0;
