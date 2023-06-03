@@ -31,7 +31,7 @@ Reflect.defineProperty(globalThis, "FPS", {
 });
 export const startMainLoop = () => void function mainLoop() {
   const n = now();
-  fps = 1000 / prev - n;
+  fps = 1000 / (n - prev);
   prev = n;
   clearCanvas();
   movePlayer();
