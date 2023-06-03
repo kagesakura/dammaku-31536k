@@ -21,6 +21,7 @@ if (clientWidth * 7 < clientHeight * 6) {
 await new Promise(resolve => setTimeout(resolve, 1));
 
 const boundRect = canvas.getBoundingClientRect();
+
 export const canvasTop = boundRect.top;
 export const canvasLeft = boundRect.left;
 export const canvasRealHeight = boundRect.height;
