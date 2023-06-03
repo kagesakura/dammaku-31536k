@@ -29,7 +29,8 @@ Reflect.defineProperty(globalThis, "FPS", {
   __proto__: null,
   get: () => fps
 });
-export const startMainLoop = () => void function mainLoop() {
+let started = false;
+export const startMainLoop = () => void(!started && function mainLoop() {
   const n = now();
   fps = 1000 / (n - prev);
   prev = n;
@@ -39,4 +40,4 @@ export const startMainLoop = () => void function mainLoop() {
   moveAndDrawShots(arg);
   drawCollision();
   requestAnimationFrame(mainLoop);
-}();
+}());
