@@ -2,6 +2,7 @@ import { drawPlayer, drawCollision, movePlayer, resetPlayerPos } from "./player.
 import { moveAndDrawShots } from "./shotManager.mjs";
 import { clearCanvas } from "./canvas.mjs";
 
+const now = performance.now.bind(performance);
 const { requestAnimationFrame } = globalThis;
 
 let isDebugging = false;
@@ -23,9 +24,15 @@ const arg = Object.freeze({
   }
 });
 
-
-
+let prev = -1, fps = NaN;
+Reflect.defineProperty(globalThis, "FPS", {
+  __proto__: null,
+  get: () => fps
+});
 export const startMainLoop = () => void function mainLoop() {
+  const n = now();
+  fps = 1000 / prev - n;
+  prev = n;
   clearCanvas();
   movePlayer();
   drawPlayer();
