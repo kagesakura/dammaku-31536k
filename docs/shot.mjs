@@ -45,8 +45,8 @@ export const moveAndDrawShot = (index) => {
       if (time < 0) return true;
       const prevAngle = shotsBuffer[index + angleFieldOffset];
       const speed = shotsBuffer[index + speedFieldOffset];
-      const x = shotsBuffer[index + xFieldOffset] = shotsBuffer[index + initXFieldOffset] + cos(angle) * speed * (time / 10);
-      const y = shotsBuffer[index + yFieldOffset] = shotsBuffer[index + initYFieldOffset] + sin(angle) * speed * (time / 10);
+      const x = shotsBuffer[index + xFieldOffset] = shotsBuffer[index + initXFieldOffset] + cos(prevAngle) * speed * (time / 10);
+      const y = shotsBuffer[index + yFieldOffset] = shotsBuffer[index + initYFieldOffset] + sin(prevAngle) * speed * (time / 10);
       const size = shotsBuffer[index + sizeFieldOffset];
       if (shotsBuffer[index + bouncedFieldOffset]) {
         if (x < -size || canvasWidth + size < x) return false;
