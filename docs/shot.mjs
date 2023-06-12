@@ -111,7 +111,7 @@ export const checkCollision = (index, pX, pY) => {
 }
 
 export class NormalShot {
-  #size; #angle; #initX; #initY;
+  /* #size; #angle; #initX; #initY;
   #start; #color; #speed; #x; #y;
   #grazed;
   constructor({ x, y, size, angle, speed, color, startTime, grazed = false }) {
@@ -125,7 +125,7 @@ export class NormalShot {
     this.#color = color;
     this.#start = startTime;
     this.#grazed = grazed;
-  }
+  } */
   static createBuffer({ x, y, size, angle, speed, color, startTime, grazed = false }) {
     const buf = new Array(shotStructureSize).fill(null);
     buf[0] = 0;
@@ -141,7 +141,7 @@ export class NormalShot {
     buf[grazedFieldOffset] = grazed;
     return buf;
   }
-  get #time() {
+  /* get #time() {
     return now() - this.#start;
   }
   moveAndDraw() {
@@ -176,11 +176,11 @@ export class NormalShot {
     context.arc(this.#x, this.#y, this.#size, 0, 2 * PI, false);
     context.fillStyle = "#ffffff";
     context.fill();
-  }
+  } */
 }
 
 export class BouncingShot {
-  #size; #angle; #initX; #initY;
+  /* #size; #angle; #initX; #initY;
   #start; #color; #speed; #x; #y;
   #grazed; #bounced = false;
   constructor({ x, y, size, angle, speed, color, startTime, grazed = false }) {
@@ -194,7 +194,7 @@ export class BouncingShot {
     this.#color = color;
     this.#start = startTime;
     this.#grazed = grazed;
-  }
+  } */
   static createBuffer({ x, y, size, angle, speed, color, startTime, grazed = false }) {
     const buf = new Array(shotStructureSize).fill(null);
     buf[0] = 1;
@@ -211,7 +211,7 @@ export class BouncingShot {
     buf[bouncedFieldOffset] = false;
     return buf;
   }
-  get #time() {
+  /* get #time() {
     return now() - this.#start;
   }
   moveAndDraw() {
@@ -280,7 +280,7 @@ export class BouncingShot {
     context.arc(this.#x, this.#y, this.#size, 0, 2 * PI, false);
     context.fillStyle = "#ffffff";
     context.fill();
-  }
+  } */
 }
 
 Reflect.setPrototypeOf(NormalShot, null);
