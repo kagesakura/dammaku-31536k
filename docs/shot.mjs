@@ -1,20 +1,23 @@
 import { context, canvasWidth, canvasHeight } from "./canvas.mjs";
 
 const { PI, sin, cos, abs } = Math;
+const num2PI = 2 * PI;
 const now = performance.now.bind(performance);
 
 const sizeFieldOffset = 1;
 const angleFieldOffset = 2;
-const initXFieldOffset = 3
-const initYFieldOffset = 4
-const startTimeFieldOffset = 5 
-const colorFieldOffset = 6
-const speedFieldOffset = 7
-const xFieldOffset = 8
-const yFieldOffset = 9
-const grazedFieldOffset = 10
-const bouncedFieldOffset = 11
-export const shotStructureSize = 12;
+const initXFieldOffset = 3;
+const initYFieldOffset = 4;
+const startTimeFieldOffset = 5;
+const colorFieldOffset = 6;
+const speedFieldOffset = 7;
+const xFieldOffset = 8;
+const yFieldOffset = 9;
+const grazedFieldOffset = 10;
+const bouncedFieldOffset = 11;
+const angleXFieldOffset = 12;
+const angleYFieldOffset = 13;
+export const shotStructureSize = 14;
 
 export const shotsBuffer = { __proto__: null };
 
@@ -25,17 +28,17 @@ export const moveAndDrawShot = (index) => {
       if (time < 0) return true;
       const angle = shotsBuffer[index + angleFieldOffset];
       const speed = shotsBuffer[index + speedFieldOffset];
-      const x = shotsBuffer[index + xFieldOffset] = shotsBuffer[index + initXFieldOffset] + cos(angle) * speed * (time / 10);
+      const x = shotsBuffer[index + xFieldOffset] = shotsBuffer[index + initXFieldOffset] + shotsBuffer[index + angleXFieldOffset] * speed * (time / 10);
       const size = shotsBuffer[index + sizeFieldOffset];
       if (x < -size || canvasWidth + size < x) return false;
-      const y = shotsBuffer[index + yFieldOffset] = shotsBuffer[index + initYFieldOffset] + sin(angle) * speed * (time / 10);
+      const y = shotsBuffer[index + yFieldOffset] = shotsBuffer[index + initYFieldOffset] + shotsBuffer[index + angleYFieldOffset] * speed * (time / 10);
       if (y < -size || canvasHeight + size < y) return false;
       context.beginPath();
-      context.arc(x, y, size * 1.34, 0, 2 * PI, false);
+      context.arc(x, y, size * 1.34, 0, num2PI, false);
       context.fillStyle = shotsBuffer[index + colorFieldOffset];
       context.fill();
       context.beginPath();
-      context.arc(x, y, size, 0, 2 * PI, false);
+      context.arc(x, y, size, 0, num2PI, false);
       context.fillStyle = "#ffffff";
       context.fill();
       return true;
@@ -45,8 +48,8 @@ export const moveAndDrawShot = (index) => {
       if (time < 0) return true;
       const prevAngle = shotsBuffer[index + angleFieldOffset];
       const speed = shotsBuffer[index + speedFieldOffset];
-      const x = shotsBuffer[index + xFieldOffset] = shotsBuffer[index + initXFieldOffset] + cos(prevAngle) * speed * (time / 10);
-      const y = shotsBuffer[index + yFieldOffset] = shotsBuffer[index + initYFieldOffset] + sin(prevAngle) * speed * (time / 10);
+      const x = shotsBuffer[index + xFieldOffset] = shotsBuffer[index + initXFieldOffset] + shotsBuffer[index + angleXFieldOffset] * speed * (time / 10);
+      const y = shotsBuffer[index + yFieldOffset] = shotsBuffer[index + initYFieldOffset] + shotsBuffer[index + angleYFieldOffset] * speed * (time / 10);
       const size = shotsBuffer[index + sizeFieldOffset];
       if (shotsBuffer[index + bouncedFieldOffset]) {
         if (x < -size || canvasWidth + size < x) return false;
@@ -54,8 +57,10 @@ export const moveAndDrawShot = (index) => {
       } else if (x < size) {
         let angle = prevAngle;
         if (angle < PI) angle = PI - angle;
-        else angle = PI - angle + 2 * PI;
+        else angle = PI - angle + num2PI;
         shotsBuffer[index + angleFieldOffset] = angle;
+        shotsBuffer[index + angleXFieldOffset] = cos(angle);
+        shotsBuffer[index + angleYFieldOffset] = sin(angle);
         shotsBuffer[index + initXFieldOffset] = size;
         shotsBuffer[index + initYFieldOffset] = y;
         shotsBuffer[index + startTimeFieldOffset] = now();
@@ -63,33 +68,39 @@ export const moveAndDrawShot = (index) => {
       } else if (canvasWidth - size < x) {
         let angle = prevAngle;
         if (angle < PI) angle = PI - angle;
-        else angle = PI - angle + 2 * PI;
+        else angle = PI - angle + num2PI;
         shotsBuffer[index + angleFieldOffset] = angle;
+        shotsBuffer[index + angleXFieldOffset] = cos(angle);
+        shotsBuffer[index + angleYFieldOffset] = sin(angle);
         shotsBuffer[index + initXFieldOffset] = canvasWidth - size;
         shotsBuffer[index + initYFieldOffset] = y;
         shotsBuffer[index + startTimeFieldOffset] = now();
         shotsBuffer[index + bouncedFieldOffset] = true;
       } else if (y < size) {
-        const angle = 2 * PI - prevAngle;
+        const angle = num2PI - prevAngle;
         shotsBuffer[index + angleFieldOffset] = angle;
+        shotsBuffer[index + angleXFieldOffset] = cos(angle);
+        shotsBuffer[index + angleYFieldOffset] = sin(angle);
         shotsBuffer[index + initXFieldOffset] = x;
         shotsBuffer[index + initYFieldOffset] = size;
         shotsBuffer[index + startTimeFieldOffset] = now();
         shotsBuffer[index + bouncedFieldOffset] = true;
       } else if (canvasHeight - size < y) {
-        const angle = 2 * PI - prevAngle;
+        const angle = num2PI - prevAngle;
         shotsBuffer[index + angleFieldOffset] = angle;
+        shotsBuffer[index + angleXFieldOffset] = cos(angle);
+        shotsBuffer[index + angleYFieldOffset] = sin(angle);
         shotsBuffer[index + initXFieldOffset] = x;
         shotsBuffer[index + initYFieldOffset] = canvasHeight - size;
         shotsBuffer[index + startTimeFieldOffset] = now();
         shotsBuffer[index + bouncedFieldOffset] = true;
       }
       context.beginPath();
-      context.arc(x, y, size * 1.34, 0, 2 * PI, false);
+      context.arc(x, y, size * 1.34, 0, num2PI, false);
       context.fillStyle = shotsBuffer[index + colorFieldOffset];
       context.fill();
       context.beginPath();
-      context.arc(x, y, size, 0, 2 * PI, false);
+      context.arc(x, y, size, 0, num2PI, false);
       context.fillStyle = "#ffffff";
       context.fill();
       return true;
@@ -135,6 +146,8 @@ export class NormalShot {
     while (angle < 0) angle += PI * 2;
     while (PI * 2 < angle) angle -= PI * 2;
     buf[angleFieldOffset] = angle;
+    buf[angleXFieldOffset] = cos(angle);
+    buf[angleYFieldOffset] = sin(angle);
     buf[speedFieldOffset] = speed;
     buf[colorFieldOffset] = color;
     buf[startTimeFieldOffset] = startTime;
@@ -204,6 +217,8 @@ export class BouncingShot {
     while (angle < 0) angle += PI * 2;
     while (PI * 2 < angle) angle -= PI * 2;
     buf[angleFieldOffset] = angle;
+    buf[angleXFieldOffset] = cos(angle);
+    buf[angleYFieldOffset] = sin(angle);
     buf[speedFieldOffset] = speed;
     buf[colorFieldOffset] = color;
     buf[startTimeFieldOffset] = startTime;
