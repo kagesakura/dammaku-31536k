@@ -29,6 +29,11 @@ Reflect.defineProperty(globalThis, "FPS", {
   __proto__: null,
   get: () => (1000 / spf) >>> 0
 });
+let qqq = null;
+Reflect.defineProperty(globalThis, "APP", {
+  __proto__: null,
+  get: () => qqq >>> 0
+});
 let started = false;
 export const startMainLoop = () => void(!started && function mainLoop() {
   const n = now();
@@ -39,5 +44,6 @@ export const startMainLoop = () => void(!started && function mainLoop() {
   drawPlayer();
   moveAndDrawShots(arg);
   drawCollision();
+  qqq = now() - n;
   requestAnimationFrame(mainLoop);
 }());
