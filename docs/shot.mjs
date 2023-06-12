@@ -37,7 +37,7 @@ export const moveAndDrawShot = (index) => {
       const y = shotsBuffer[index + yFieldOffset] = shotsBuffer[index + initYFieldOffset] + shotsBuffer[index + angleYFieldOffset] * speed * (time / 10);
       if (y < -size || canvasHeight + size < y) return false;
       context.beginPath();
-      context.arc(x, y, shotsBuffer[index + grazeSquareOffset], 0, num2PI, false);
+      context.arc(x, y, shotsBuffer[index + glowSizeOffset], 0, num2PI, false);
       context.fillStyle = shotsBuffer[index + colorFieldOffset];
       context.fill();
       context.beginPath();
@@ -99,7 +99,7 @@ export const moveAndDrawShot = (index) => {
         shotsBuffer[index + bouncedFieldOffset] = true;
       }
       context.beginPath();
-      context.arc(x, y, shotsBuffer[index + grazeSquareOffset], 0, num2PI, false);
+      context.arc(x, y, shotsBuffer[index + glowSizeOffset], 0, num2PI, false);
       context.fillStyle = shotsBuffer[index + colorFieldOffset];
       context.fill();
       context.beginPath();
@@ -113,11 +113,9 @@ export const moveAndDrawShot = (index) => {
 
 export const checkCollision = (index, pX, pY) => {
   if (now() < shotsBuffer[index + startTimeFieldOffset]) return undefined;
-  const size = shotsBuffer[index + sizeFieldOffset];
-  const x = shotsBuffer[index + xFieldOffset];
-  const y = shotsBuffer[index + yFieldOffset];
-  if ((x - pX) ** 2 + (y - pY) ** 2 < shotsBuffer[index + grazeSizeSquareOffset]) return -1;
-  if (!shotsBuffer[index + grazedFieldOffset] && (x - pX) ** 2 + (y - pY) ** 2 < shotsBuffer[index + hitSizeSquareOffset]) {
+  const diffSq = (shotsBuffer[index + xFieldOffset] - pX) ** 2 + (shotsBuffer[index + yFieldOffset] - pY) ** 2;
+  if (diffSq < shotsBuffer[index + grazeSizeSquareOffset]) return -1;
+  if (!shotsBuffer[index + grazedFieldOffset] && diffSq < shotsBuffer[index + hitSizeSquareOffset]) {
     shotsBuffer[index + grazedFieldOffset] = true;
     return 1;
   }
