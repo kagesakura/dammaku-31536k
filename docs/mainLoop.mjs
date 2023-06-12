@@ -42,8 +42,9 @@ export const startMainLoop = () => void(!started && function mainLoop() {
   clearCanvas();
   movePlayer();
   drawPlayer();
+  const ppp = now();
   moveAndDrawShots(arg);
-  drawCollision();
   qqq = now() - n;
+  drawCollision();
   requestAnimationFrame(mainLoop);
 }());
