@@ -126,20 +126,20 @@ for (let i = 0;; i++) {
 }
 
 for (let i = 0;; i++) {
-  const time = secondPhaseStart + 500 * i;
+  const time = secondPhaseStart + 1000 * i;
   if (secondPhaseEnd < time) break;
   setTimeout(() => {
     BouncingShot.createBuffer({
       x: 411, y: 350 + random() * 10, size: 9,
       angle: (random() * 360) * PI / 180,
-      speed: 4,
+      speed: 3.4,
       color: "#0229e8",
       startTime: startTime + time
     }).forEach(n => appendShot(n));
     BouncingShot.createBuffer({
       x: 1233, y: 350 + random() * 10, size: 9,
       angle: (random() * 360) * PI / 180,
-      speed: 4,
+      speed: 3.4,
       color: "#0229e8",
       startTime: startTime + time
     }).forEach(n => appendShot(n));
