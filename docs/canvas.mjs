@@ -11,12 +11,14 @@ canvas.addEventListener("contextmenu", e => e.preventDefault());
 
 await new Promise(resolve => window.addEventListener("load", resolve, { once: true }));
 
-const { clientWidth, clientHeight } = document.documentElement;
+const { clientWidth, clientHeight, style: htmlStyle } = document.documentElement;
 if (clientWidth * 7 < clientHeight * 6) {
   canvas.style.width = clientWidth - 4 + "px";
 } else {
   canvas.style.height = clientHeight - 3 + "px";
 }
+htmlStyle.height = clientHeight + "px";
+htmlStyle.width = clientWidth + "px";
 
 await new Promise(resolve => setTimeout(resolve, 1));
 
