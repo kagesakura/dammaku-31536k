@@ -17,7 +17,7 @@ if (clientWidth * 7 < clientHeight * 6) {
 } else {
   canvas.style.height = clientHeight - 3 + "px";
 }
-htmlStyle.height = clientHeight + "px";
+// htmlStyle.height = clientHeight + "px";
 htmlStyle.width = clientWidth + "px";
 
 await new Promise(resolve => setTimeout(resolve, 1));
