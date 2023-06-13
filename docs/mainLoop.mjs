@@ -5,7 +5,7 @@ import { clearCanvas } from "./canvas.mjs";
 const now = performance.now.bind(performance);
 const { requestAnimationFrame } = globalThis;
 
-let isDebugging = false;
+let isDebugging = true;
 Reflect.defineProperty(globalThis, "DAMMAKU_DEBUG", {
   __proto__: null,
   get: () => isDebugging,
