@@ -149,9 +149,9 @@ for (let i = 0;; i++) {
 for (let i = 0;; i++) {
   const time = secondPhaseStart + 183 * i;
   if (secondPhaseEnd < time) break;
-  const r = 570;
+  const r = 530;
   const x = 822 + r * sin(i * PI / 14);
-  const y = 600 + r * -cos(i * PI / 14);
+  const y = 560 + r * -cos(i * PI / 14);
   setTimeout(() => {
     const { x: playerX, y: playerY } = getPlayerPos();
     NormalShot.createBuffer({
