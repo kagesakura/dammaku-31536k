@@ -170,7 +170,7 @@ const audioPlayer = document.createElement("audio");
 document.body.appendChild(audioPlayer);
 audioPlayer.src = "bgm.mp3";
 audioPlayer.loop = true;
-audioPlayer.volume = 0.035;
+audioPlayer.volume = 0.025;
 
 window.addEventListener("keydown", () => {
   audioPlayer.play();
