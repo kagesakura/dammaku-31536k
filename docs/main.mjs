@@ -168,7 +168,7 @@ startMainLoop();
 
 const audioPlayer = document.createElement("audio");
 document.body.appendChild(audioPlayer);
-audioPlayer.src = "bgm.mp3";
+audioPlayer.src = "bgm_.mp3";
 audioPlayer.loop = true;
 audioPlayer.volume = 0.025;
 
