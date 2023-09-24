@@ -80,17 +80,17 @@ for (let i = 0;; i++) {
   if (firstPhaseEnd < time) break;
   setTimeout(() => {
     const a = (i * 2) % 360;
-    for (let d = 0; d < 24; d++) {
+    for (let d = 0; d < 20; d++) {
       NormalShot.createBuffer({
         x: 411, y: 350, size: 9,
-        angle: (d * 15 + a) * PI / 180,
+        angle: (d * 18 + a) * PI / 180,
         speed: 2.7,
         color: "#f00c41",
         startTime: startTime + time
       }).forEach(n => appendShot(n));
       NormalShot.createBuffer({
         x: 1233, y: 350, size: 9,
-        angle: (d * 15 - a) / 180 * PI,
+        angle: (d * 18 - a) / 180 * PI,
         speed: 2.7,
         color: "#f00c41",
         startTime: startTime + time
