@@ -15,6 +15,8 @@ const startTime = performance.now() + 200;
 const firstPhaseEnd = 20000;
 const secondPhaseStart = 25000;
 const secondPhaseEnd = 45000;
+const thirdPhaseStart = 50000;
+const thirdPhaseEnd = 70000;
 
 for (let i = 0;; i++) {
   const time = 1600 * i + 7000;
@@ -161,6 +163,32 @@ for (let i = 0;; i++) {
       color: "#ffff009f",
       startTime: startTime + time
     }).forEach(n => appendShot(n));
+  }, time);
+}
+
+for (let i = 0;; i++) {
+  const time = thirdPhaseStart + 698 * i;
+  if (thirdPhaseEnd < time) break;
+  setTimeout(() => {
+    const x = 500 + random() * 644;
+    const y = 50 + random() * 220;
+    const { x: playerX, y: playerY } = getPlayerPos();
+    for (let d = -4; d < 5; d++) {
+      NormalShot.createBuffer({
+        x, y, size: 9,
+        angle: (getAngle(x, y, playerX, playerY) + d * 20) * PI / 180,
+        speed: 2,
+        color: "#2fed05",
+        startTime: startTime + time
+      }).forEach(n => appendShot(n));
+      NormalShot.createBuffer({
+        x, y, size: 9,
+        angle: (getAngle(x, y, playerX, playerY) + d * 20) * PI / 180,
+        speed: 2.23,
+        color: "#2fed05",
+        startTime: startTime + time
+      }).forEach(n => appendShot(n));
+    }
   }, time);
 }
 
