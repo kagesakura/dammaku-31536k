@@ -242,8 +242,8 @@ for (let i = 0;; i++) {
 }
 
 for (let i = 0;; i++) {
-  const time = fourthPhaseStart + 183 * i;
-  if (fourthPhaseStart < time) break;
+  const time = fourthPhaseStart + 93 * i;
+  if (fourthPhaseEnd < time) break;
   const r = 50;
   const a = (i * 22.273) % 360;
   const x1 = 987 + r * sin(i * PI / 7);
@@ -261,7 +261,7 @@ for (let i = 0;; i++) {
     }).forEach(n => appendShot(n));
     NormalShot.createBuffer({
       x: x2, y: y2, size: 8,
-      angle: -a * PI / 180,
+      angle: (360 - a) * PI / 180,
       speed: 3,
       color: "#ffff009f",
       startTime: startTime + time
