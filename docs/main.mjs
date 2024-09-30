@@ -245,7 +245,7 @@ for (let i = 0;; i++) {
   const time = /*fourthPhaseStart*/0 + 93 * i;
   if (/*fourthPhaseEnd*/firstPhaseEnd < time) break;
   const r = 60;
-  const a = (i * 22.273) % 360;
+  const a = (i * 25.7) % 360;
   const x1 = 987 + r * sin(i * PI / 7);
   const y1 = 131 + r * -cos(i * PI / 7);
   const x2 = 987 + r * -sin(i * PI / 7);
@@ -256,14 +256,14 @@ for (let i = 0;; i++) {
       NormalShot.createBuffer({
         x: x1, y: y1, size: 8,
         angle: (a + base) * PI / 180,
-        speed: 3,
+        speed: 5,
         color: "#ffff009f",
         startTime: startTime + time
       }).forEach(n => appendShot(n));
       NormalShot.createBuffer({
         x: x2, y: y2, size: 8,
         angle: (360 - a + base) * PI / 180,
-        speed: 3,
+        speed: 5,
         color: "#ffff009f",
         startTime: startTime + time
       }).forEach(n => appendShot(n));
