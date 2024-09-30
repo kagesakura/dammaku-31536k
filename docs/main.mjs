@@ -192,6 +192,29 @@ for (let i = 0;; i++) {
   }, time);
 }
 
+for (let i = 0;; i++) {
+  // const time = thirdPhaseStart + 598 * i;
+  // if (thirdPhaseEnd < time) break;
+  const time = 0 + 198 * i;
+  const a = (i * 5) % 360;
+  if (firstPhaseEnd < time) break;
+  setTimeout(() => {
+    const x = 657;
+    const y = 122;
+    for (let base = 0; base < 360; base += 90) {
+      for (let d = -2; d < 3; d++) {
+        NormalShot.createBuffer({
+          x, y, size: 9,
+          angle: (a + base + d * 5) * PI / 180,
+          speed: 6.1,
+          color: "#0229e8",
+          startTime: startTime + time
+        }).forEach(n => appendShot(n));
+      }
+    }
+  }, time);
+}
+
 startMainLoop();
 
 const audioPlayer = document.createElement("audio");
