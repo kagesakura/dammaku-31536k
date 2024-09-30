@@ -193,11 +193,9 @@ for (let i = 0;; i++) {
 }
 
 for (let i = 0;; i++) {
-  // const time = thirdPhaseStart + 598 * i;
-  // if (thirdPhaseEnd < time) break;
-  const time = 0 + 198 * i;
+  const time = thirdPhaseStart + 138 * i;
   const a = (i * 5) % 360;
-  if (firstPhaseEnd < time) break;
+  if (thirdPhaseEnd < time) break;
   setTimeout(() => {
     const x = 657;
     const y = 122;
@@ -205,7 +203,7 @@ for (let i = 0;; i++) {
       for (let d = -2; d < 3; d++) {
         NormalShot.createBuffer({
           x, y, size: 9,
-          angle: (a + base + d * 5) * PI / 180,
+          angle: (a + base + d * 13) * PI / 180,
           speed: 6.1,
           color: "#0229e8",
           startTime: startTime + time
