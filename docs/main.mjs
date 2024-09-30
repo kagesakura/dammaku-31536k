@@ -12,9 +12,9 @@ function getAngle(originX, originY, targetX, targetY) {
 }
 
 const startTime = performance.now() + 200;
-const firstPhaseEnd = 50000;
-const secondPhaseStart = 55000;
-const secondPhaseEnd = 100000;
+const firstPhaseEnd = 20000;
+const secondPhaseStart = 25000;
+const secondPhaseEnd = 45000;
 
 for (let i = 0;; i++) {
   const time = 1600 * i + 7000;
