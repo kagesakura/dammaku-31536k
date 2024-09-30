@@ -242,10 +242,10 @@ for (let i = 0;; i++) {
 }
 
 for (let i = 0;; i++) {
-  const time = secondPhaseStart + 183 * i;
-  if (secondPhaseEnd < time) break;
+  const time = fourthPhaseStart + 183 * i;
+  if (fourthPhaseStart < time) break;
   const r = 50;
-  const a = (i * 2.273) % 360;
+  const a = (i * 22.273) % 360;
   const x1 = 987 + r * sin(i * PI / 7);
   const y1 = 131 + r * -cos(i * PI / 7);
   const x2 = 987 + r * -sin(i * PI / 7);
