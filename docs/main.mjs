@@ -17,6 +17,8 @@ const secondPhaseStart = 25000;
 const secondPhaseEnd = 45000;
 const thirdPhaseStart = 50000;
 const thirdPhaseEnd = 60000;
+const fourthPhaseStart = 60000;
+const fourthPhaseEnd = 70000;
 
 for (let i = 0;; i++) {
   const time = 1600 * i + 7000;
@@ -213,13 +215,67 @@ for (let i = 0;; i++) {
   }, time);
 }
 
+for (let i = 0;; i++) {
+  const time = fourthPhaseStart + 598 * i;
+  if (fourthPhaseEnd < time) break;
+  setTimeout(() => {
+    const x = 500 + random() * 644;
+    const y = 50 + random() * 220;
+    const { x: playerX, y: playerY } = getPlayerPos();
+    for (let d = -4; d < 5; d++) {
+      NormalShot.createBuffer({
+        x, y, size: 9,
+        angle: (getAngle(x, y, playerX, playerY) + d * 20) * PI / 180,
+        speed: 3.485,
+        color: "#8aff24",
+        startTime: startTime + time
+      }).forEach(n => appendShot(n));
+      NormalShot.createBuffer({
+        x, y, size: 9,
+        angle: (getAngle(x, y, playerX, playerY) + d * 20) * PI / 180,
+        speed: 3.992,
+        color: "#8aff24",
+        startTime: startTime + time
+      }).forEach(n => appendShot(n));
+    }
+  }, time);
+}
+
+for (let i = 0;; i++) {
+  const time = secondPhaseStart + 183 * i;
+  if (secondPhaseEnd < time) break;
+  const r = 50;
+  const a = (i * 2.273) % 360;
+  const x1 = 987 + r * sin(i * PI / 7);
+  const y1 = 131 + r * -cos(i * PI / 7);
+  const x2 = 987 + r * -sin(i * PI / 7);
+  const y2 = 131 + r * -cos(i * PI / 7);
+  setTimeout(() => {
+    const { x: playerX, y: playerY } = getPlayerPos();
+    NormalShot.createBuffer({
+      x: x1, y: y1, size: 8,
+      angle: a * PI / 180,
+      speed: 3,
+      color: "#ffff009f",
+      startTime: startTime + time
+    }).forEach(n => appendShot(n));
+    NormalShot.createBuffer({
+      x: x2, y: y2, size: 8,
+      angle: -a * PI / 180,
+      speed: 3,
+      color: "#ffff009f",
+      startTime: startTime + time
+    }).forEach(n => appendShot(n));
+  }, time);
+}
+
 startMainLoop();
 
 const audioPlayer = document.createElement("audio");
 document.body.appendChild(audioPlayer);
 audioPlayer.src = "bgm_.mp3";
 audioPlayer.loop = true;
-audioPlayer.volume = 0.025;
+audioPlayer.volume = 0.125;
 
 window.addEventListener("keydown", () => {
   audioPlayer.play();
