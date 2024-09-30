@@ -242,9 +242,9 @@ for (let i = 0;; i++) {
 }
 
 for (let i = 0;; i++) {
-  const time = /*fourthPhaseStart*/0 + 93 * i;
+  const time = /*fourthPhaseStart*/0 + 113 * i;
   if (/*fourthPhaseEnd*/firstPhaseEnd < time) break;
-  const r = 60;
+  const r = 100;
   const a = (i * 25.7) % 360;
   const x1 = 987 + r * sin(i * PI / 7);
   const y1 = 131 + r * -cos(i * PI / 7);
